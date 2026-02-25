@@ -37,7 +37,7 @@ pipeline {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'aws-credentials'
                 ]]) {
-                    sh "terraform plan -out=tfplan"
+                    sh "terraform plan"
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'aws-credentials'
                 ]]) {
-                    sh "terraform apply -auto-approve tfplan"
+                    sh "terraform apply -auto-approve"
                 }
             }
         }
