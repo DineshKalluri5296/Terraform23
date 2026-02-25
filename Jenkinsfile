@@ -5,10 +5,6 @@ pipeline {
         AWS_DEFAULT_REGION = "us-east-1"
     }
 
-    tools {
-        terraform 'terraform'   // Make sure Terraform is configured in Jenkins Global Tools
-    }
-
     stages {
 
         stage('Checkout Code') {
@@ -32,28 +28,15 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                sh 'terraform plan -out=tfplan'
+                sh 'terraform plan'
             }
         }
-
-      
 
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply -auto-approve tfplan'
+                '
+                sh 'terraform apply -auto-approve'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline completed.'
-        }
-        failure {
-            echo 'Terraform deployment failed.'
-        }
-        success {
-            echo 'Terraform deployment successful.'
         }
     }
 }
