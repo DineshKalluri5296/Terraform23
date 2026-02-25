@@ -1,0 +1,6 @@
+aws_ecr_repository = "terraform"
+vpc_cidr           = "10.0.0.0/16"
+vpc_region         = "us-east-1"
+subnet_cidr        = "10.0.0.0/24"
+instance_type      = "t2.medium"
+ec2_ami            = "ami-0f3caa1cf4417e51b"
